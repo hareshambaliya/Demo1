@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoLibrary;
+using System;
 
 namespace Demo1
 {
@@ -16,29 +17,27 @@ namespace Demo1
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            ////primitive data types are: int, object, short, char, float, double, bool.
-            int a = 0;
-            int[] array = { 1, 2, 3, 4, 5 };
+            Console.WriteLine("Enter operand 1: ");
+            decimal operand1 = Convert.ToDecimal(Console.ReadLine());
+            
+            Console.WriteLine("Enter operand 2: ");
+            decimal operand2 = Convert.ToDecimal(Console.ReadLine());
 
-            object obj = 0;
-            object obj1 = "haresh";
-            object obj2 = true;
+            Console.WriteLine(
+                "1. Addition\n" +
+                "2. Subtraction\n" +
+                "3. Multiplication\n" +
+                "4. Division\n" +
+                "Enter operation no: ");
 
-            float f = 0.2F;
-            double d = 0.2;
-            decimal d1 = 0.2M;
+            int operation = Convert.ToInt32(Console.ReadLine());
 
-            bool tr = true;
-            bool fs = false;
+            decimal result;
 
-            bool one = Convert.ToBoolean(1);
-            bool zero = Convert.ToBoolean(0);
-
-            char[] haresh = { 'h','a','r','e','s','h' };
-
-            string h = "haresh";
-
-            Console.WriteLine(h);
+            if (operation == 1)
+                result = new Maths().Addition(operand1, operand2);
+            else if(operation==2)
+                result = new Maths().Subtraction(operand1, operand2);
 
             Console.ReadKey();
         }
